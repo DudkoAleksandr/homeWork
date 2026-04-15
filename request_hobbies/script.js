@@ -34,18 +34,18 @@ btn.addEventListener("click", async () => {
 
 function render(hobbies) {
   divResult.innerHTML = "";
-  for(let i = 0; i < hobbies.length; i++){
+  for (let i = 0; i < hobbies.length; i++) {
     const container = document.createElement("div");
     container.classList.add("div__container");
-    const numberHobbies = document.createElement('p')
-    numberHobbies.innerHTML = i + 1 + '' + ")"
+    const numberHobbies = document.createElement("p");
+    numberHobbies.innerHTML = i + 1 + "" + ")";
     const theme = document.createElement("p");
     theme.innerHTML = hobbies[i].category;
     const title = document.createElement("p");
     title.innerHTML = hobbies[i].hobby;
     const titleLink = document.createElement("p");
     titleLink.innerHTML = hobbies[i].link;
-    container.append(numberHobbies)
+    container.append(numberHobbies);
     container.append(theme);
     container.append(title);
     container.append(titleLink);
@@ -69,21 +69,28 @@ function render(hobbies) {
 }
 render(hobbies);
 
-// selectSort.addEventListener("change", () => {
-//   for (let category of hobbies) {
-//     if (selectSort.value === "sports__category") {
-//       console.log(5+5);
-//     } else if (selectSort.value === "education__category") {
-//       console.log(3 + 3);
-//     } else if (selectSort.value === "competition__category") {
-//       console.log(4 + 4);
-//     } else if (selectSort.value === "all__category") {
-//       console.log(1 + 1);
-//     }
-
-//     console.log(category.category);
-//   }
-// });
+selectSort.addEventListener("change", () => {
+  search = []
+  for (let category of hobbies) {
+    if (selectSort.value === "sports__category") {
+      if (category.category === "sports_and_outdoors") {
+        search.push(category)
+      }
+      console.log(category.category);
+    } else if (selectSort.value === "education__category") {
+      if (category.category === "education") {
+        search.push(category);
+      }
+    } else if (selectSort.value === "competition__category") {
+      if (category.category === "competition") {
+        search.push(category);
+      }
+    } else if (selectSort.value === "all__category") {
+        search.push(category);
+    }
+  }
+  render(search)
+});
 
 dellAll.addEventListener("click", () => {
   hobbies.splice(0);
