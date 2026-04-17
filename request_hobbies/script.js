@@ -3,6 +3,7 @@ const divResult = document.querySelector(".div__result");
 const select = document.querySelector(".select");
 const selectSort = document.querySelector(".select__sort");
 const dellAll = document.querySelector(".del__all");
+const inputSearch = document.querySelector('.input')
 let hobbies = JSON.parse(localStorage.getItem("result"));
 
 if (hobbies === null) {
@@ -62,6 +63,7 @@ function render(hobbies) {
   for (let i = 0; i < btnDel.length; i++) {
     btnDel[i].addEventListener("click", () => {
       hobbies.splice(i, 1);
+
       render(hobbies);
       localStorage.setItem("result", JSON.stringify(hobbies));
     });
@@ -70,13 +72,12 @@ function render(hobbies) {
 render(hobbies);
 
 selectSort.addEventListener("change", () => {
-  search = []
+  const search = [];
   for (let category of hobbies) {
     if (selectSort.value === "sports__category") {
       if (category.category === "sports_and_outdoors") {
-        search.push(category)
+        search.push(category);
       }
-      console.log(category.category);
     } else if (selectSort.value === "education__category") {
       if (category.category === "education") {
         search.push(category);
@@ -86,10 +87,18 @@ selectSort.addEventListener("change", () => {
         search.push(category);
       }
     } else if (selectSort.value === "all__category") {
-        search.push(category);
+      search.push(category);
     }
   }
-  render(search)
+  render(search);
+
+  if (
+    selectSort.value === "sports__category" ||
+    selectSort.value === "education__category" ||
+    selectSort.value === "competition__category"
+  ) {
+    hideDelete();
+  }
 });
 
 dellAll.addEventListener("click", () => {
@@ -98,3 +107,20 @@ dellAll.addEventListener("click", () => {
   render(hobbies);
   console.log(hobbies);
 });
+
+function hideDelete() {
+  const btnDel = document.querySelectorAll(".btn__del");
+  for (let btn of btnDel) {
+    btn.classList.add("hidden");
+  }
+}
+
+inputSearch.addEventListener('input', () => {
+  const resultArr = []
+  for(let nameHobbi of hobbies){
+    if (nameHobbi.hobby.includes(inputSearch.value)){
+      resultArr.push(nameHobbi)
+    }
+  }
+  render(resultArr)
+})
