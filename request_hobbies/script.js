@@ -27,6 +27,7 @@ btn.addEventListener("click", async () => {
   const result = await responce.json();
   // console.log(result);
   // render(hobbies);
+  result.id = Date.now()
   hobbies.push(result);
   // console.log(hobbies);
   localStorage.setItem("result", JSON.stringify(hobbies));
@@ -51,7 +52,7 @@ function render(hobbies) {
     container.append(title);
     container.append(titleLink);
     const html = `
-        <button class="btn__del">Удалить</button>
+        <button data-id=${hobbies[i].id} class="btn__del">Удалить</button>
     `;
     container.insertAdjacentHTML("beforeend", html);
     divResult.append(container);
@@ -62,7 +63,13 @@ function render(hobbies) {
 
   for (let i = 0; i < btnDel.length; i++) {
     btnDel[i].addEventListener("click", () => {
-      hobbies.splice(i, 1);
+      const hobbiId = btnDel[i].dataset.id;
+      // console.log(hobbiId)
+      const index = hobbies.findIndex((hobbie) => {
+          return hobbiId == hobbie.id;
+      })
+// console.log(index)
+      hobbies.splice(index, 1);
 
       render(hobbies);
       localStorage.setItem("result", JSON.stringify(hobbies));
