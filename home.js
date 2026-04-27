@@ -59,11 +59,11 @@
 // })
 // console.log(tasksCheck)
 
-const users = [
-  { name: "Alex", age: 22, type: 'adult'},
-  { name: "Ivan", age: 19, type: 'adult' },
-  { name: "Ivan", age: 1, type: 'child' },
-];
+// const users = [
+//   { name: "Alex", age: 22, type: 'adult'},
+//   { name: "Ivan", age: 19, type: 'adult' },
+//   { name: "Ivan", age: 1, type: 'child' },
+// ];
 
 // const userAge = users.every((user) => {
 //     if(user.type === 'adult'){
@@ -75,15 +75,47 @@ const users = [
 // console.log(userAge)
 
 
-const strings = users.map((str) => {
-    let type = ''
-    if(str.type === 'adult'){
-        type = 'Взрослый'
-    } else if( str.type === 'child'){
-        type = 'Ребенок'
-    }
-    return `${str.name} (${str.age}) - ${type} `
-    // console.log(strings)
-})
-console.log(strings);
-console.log(users)
+// const strings = users.map((str) => {
+//     let type = ''
+//     if(str.type === 'adult'){
+//         type = 'Взрослый'
+//     } else if( str.type === 'child'){
+//         type = 'Ребенок'
+//     }
+//     return `${str.name} (${str.age}) - ${type} `
+//     // console.log(strings)
+// })
+// console.log(strings);
+// console.log(users)
+
+
+
+
+
+
+// function capitalizeFirstLetter(str){
+//  if(str === ''){
+//     return str
+//  } else {
+//     return str[0].toUpperCase() + str.slice(1).toLowerCase()
+//  }
+// }
+
+// console.log(capitalizeFirstLetter("javaScript"));
+
+// function reverseWordsOrder(str) {
+//     return str.split(' ').reverse().join(' ')
+// }
+// console.log(reverseWordsOrder("JavaScript это весело"));
+
+// function censorText(str, badWords){
+//     return str.split(' ').map(word => {
+//         if (badWords.includes(word)){
+//             return "***";
+//         }
+//         return word
+//     })
+//     .join(' ')
+// }
+// console.log(censorText("Хелло ворлд", ["мир"]));
+// console.log(censorText("Боб и бобёр пошли в бар", ["боб", "бар"]));
