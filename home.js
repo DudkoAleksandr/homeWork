@@ -110,7 +110,7 @@
 
 // function censorText(str, badWords){
 //     return str.split(' ').map(word => {
-//         if (badWords.includes(word)){
+//         if (badWords.includes(word.toLowerCase())){
 //             return "***";
 //         }
 //         return word
