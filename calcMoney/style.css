@@ -1,4 +1,7 @@
 .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100px;
     height: 100px;
     border: 5px dotted black;
@@ -15,4 +18,8 @@
     100%{
         transform: rotate(360deg) scale(0.5);
     }
+}
+
+.hidden {
+    display: none;
 }
