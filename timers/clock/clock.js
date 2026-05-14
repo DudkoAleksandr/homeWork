@@ -11,20 +11,25 @@ function formatDate(num) {
 
 let timerId;
 
+function startClock() {
+  const date = new Date();
+  const hours = date.getHours();
+  const min = date.getMinutes();
+  const sec = date.getSeconds();
+  const clock =
+    formatDate(hours) + ":" + formatDate(min) + ":" + formatDate(sec);
+  div.innerHTML = clock;
+}
+
 btn.addEventListener("click", () => {
 
   if (btn.innerHTML === "Stop") {
     clearInterval(timerId);
-    btn.innerHTML = 'Start'
+    btn.innerHTML = "Start";
   } else {
+    startClock();
     timerId = setInterval(() => {
-      const date = new Date();
-      const hours = date.getHours();
-      const min = date.getMinutes();
-      const sec = date.getSeconds();
-      const clock =
-        formatDate(hours) + ":" + formatDate(min) + ":" + formatDate(sec);
-      div.innerHTML = clock;
+      startClock();
     }, 1000);
     btn.innerHTML = "Stop";
   }

@@ -32,11 +32,13 @@
 // btn.addEventListener('click', () => {
 //     const date = new Date (inputDate.value)
 //     const day = date.toLocaleDateString("ru-RU", {
-//         weekday: 'long'
+//         weekday: 'long',
+//         month: '2-digit'
 //     });
 //     divDate.innerHTML = day
 //     // console.log(day)
-//     // const day = date.getDay();
+//     const days = date.getDay();
+//     console.log(days)
 //     // console.log(days[day]);
 // })
 
@@ -53,33 +55,33 @@
 
 // 4.  На повторение:
 // Есть массив 
-const students = [
-  {
-    id: 1,
-    name: "Анна",
-    age: 17,
-    grades: [5, 4, 5, 3],
-  },
-  {
-    id: 2,
-    name: "Иван",
-    age: 16,
-    grades: [4, 4, 5, 5],
-  },
-  {
-    id: 3,
-    name: "Мария",
-    age: 18,
-    grades: [3, 4, 4, 5],
-  },
-];
-for(let student of students){
-    let sum = 0
-    for(let grade of student.grades){
-        sum = sum + grade
-    }
-    const result = sum / student.grades.length
-    console.log(`${student.name}: ${result}`)
-}
+// const students = [
+//   {
+//     id: 1,
+//     name: "Анна",
+//     age: 17,
+//     grades: [5, 4, 5, 3],
+//   },
+//   {
+//     id: 2,
+//     name: "Иван",
+//     age: 16,
+//     grades: [4, 4, 5, 5],
+//   },
+//   {
+//     id: 3,
+//     name: "Мария",
+//     age: 18,
+//     grades: [3, 4, 4, 5],
+//   },
+// ];
+// for(let student of students){
+//     let sum = 0
+//     for(let grade of student.grades){
+//         sum = sum + grade
+//     }
+//     const result = sum / student.grades.length
+//     console.log(`${student.name}: ${result}`)
+// }
 // Нужно найти среднюю оценку каждого студента и вывести ее в консоль в формате:
 // "Имя студента: средняя оценка"
